@@ -41,7 +41,6 @@ public:
 
 };
 
-
 class Lesorub {
 private:
 	int hp, money = 0, dayl = 0, a=0;
@@ -85,7 +84,7 @@ private:
 		}
 	}
 	void miting() {
-		if (rand() % 50) {
+		if (rand() % 50 == 0) {
 			cout << "Даааа!!!\n Нэвальный смог придти к власти и теперь не о чём заботиться\n";
 			system("pause");
 			exit(0);
@@ -111,6 +110,22 @@ private:
 			cout << ". hp = " << hp << endl;
 		}
 		SetConsoleTextAttribute(hpColor, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	}
+	void revent() {
+		if (rand() % 2== 0) {
+			cout << "Вы потеряли свои деньги\n\n";
+			cash = cash - cash;
+			dayl++;
+			clear();
+			day++;
+		}
+		else {
+			cout << "Вы нашли на улице 200 рублей\n\n";
+			cash = cash + 200;
+			dayl++;
+			clear();
+			day++;
+		}
 	}
 public:
 	int cash = 0;
@@ -188,16 +203,25 @@ public:
 	void secret(){
 		clear();
 		cout << "                             *******\n\n"
-       "***     ***     ***   ***   ***   ***\n"
-       " ***   ***       *** ***    ***   ***\n"
-       "    *****         ****      ***   ***\n"
+       "***     ***     ***   ***   ***    **\n"
+       " ***   ***       *** ***    ***    **\n"
+       "    *****         ****      ***    **\n"
        "   *****          ***       ***  ****\n"
-       "  ***   ***      ***        ***** ***\n"
-       " ***     ***    ***         ***   ***\n\n";
+       "  ***   ***      ***        *****  **\n"
+       " ***     ***    ***         ***    **\n\n";
 	}
 	void live_one_day() {
 		if (is_alive()) {
 			status();
+			if (day % 7 == 5) {
+				cout << "Хочешь сходить в бар?(yes, no)\n\n";
+				cin >> answer;
+				cout << "\n";
+				if (answer == "yes") {
+					revent();
+					status();
+				}
+			}
 			cout << "Чем сегодня займёмся?\n";
 			cin >> answer;
 			cout << "\n";
