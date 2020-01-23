@@ -1,7 +1,7 @@
 ﻿  Life in Russia.cpp
-C:\Users\novoz\source\repos\Life in Russia\Life in Russia\Life in Russia.cpp(250,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\novoz\source\repos\Life in Russia\Life in Russia\Life in Russia.cpp(266,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   Создание кода
-  5 of 127 functions ( 3.9%) were compiled, the rest were copied from previous compilation.
+  4 of 128 functions ( 3.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено

@@ -96,6 +96,22 @@ private:
 			dayl++;
 		}
 	}
+	void hpcolor() {
+		HANDLE hpColor = GetStdHandle(STD_OUTPUT_HANDLE);
+		if (hp <= 50) {
+			SetConsoleTextAttribute(hpColor, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			cout << ". hp = " << hp << endl;
+		}
+		if (hp <= 20) {
+			SetConsoleTextAttribute(hpColor, FOREGROUND_RED | FOREGROUND_INTENSITY);
+			cout << ". hp = " << hp << endl;
+		}
+		if (hp <= 100 and hp >= 51) {
+			SetConsoleTextAttribute(hpColor, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			cout << ". hp = " << hp << endl;
+		}
+		SetConsoleTextAttribute(hpColor, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	}
 public:
 	int cash = 0;
 	string answer;
@@ -140,7 +156,8 @@ public:
 			break;
 		}
 		cout << "\n";
-		cout << "day " << day << ". hp = " << hp << endl;
+		cout << "day " << day;
+		hpcolor();
 		cout << "cash" << " = " << cash << endl;
 		cout << "money" << " = " << money << endl;
 		cout << "пропуски = " << dayl << endl;
@@ -220,7 +237,6 @@ public:
 				cout << "error answer(Не понял щас)\n\n";
 				day = day - 1;
 			}
-			clear();
 		}
 	}
 };
@@ -254,6 +270,7 @@ int main()
 		vasya.live_one_day();
 		//iris.live_one_minute();
 		day++;
+		vasya.clear();
 	}
 	cout << "Ты умер(\n";
 	system("pause");
