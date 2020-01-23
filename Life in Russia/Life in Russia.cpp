@@ -85,7 +85,7 @@ private:
 		}
 	}
 	void miting() {
-		if (rand() % 50 == 0) {
+		if (rand() % 50) {
 			cout << "Даааа!!!\n Нэвальный смог придти к власти и теперь не о чём заботиться\n";
 			system("pause");
 			exit(0);
