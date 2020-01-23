@@ -1,0 +1,8 @@
+﻿  Life in Russia.cpp
+C:\Users\novoz\source\repos\Life in Russia\Life in Russia\Life in Russia.cpp(250,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Создание кода
+  8 of 127 functions ( 6.3%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    5 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  Life in Russia.vcxproj -> C:\Users\novoz\source\repos\Life in Russia\x64\Release\Life in Russia.exe
