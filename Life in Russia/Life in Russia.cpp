@@ -111,7 +111,7 @@ private:
 		}
 		SetConsoleTextAttribute(hpColor, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	}
-	void revent() {
+	void bar() {
 		if (rand() % 2== 0) {
 			cout << "Вы потеряли свои деньги\n\n";
 			cash = cash - cash;
@@ -218,7 +218,7 @@ public:
 				cin >> answer;
 				cout << "\n";
 				if (answer == "yes") {
-					revent();
+					bar();
 					status();
 				}
 			}
