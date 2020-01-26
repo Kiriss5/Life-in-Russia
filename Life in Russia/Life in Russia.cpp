@@ -43,7 +43,7 @@ public:
 
 class Lesorub {
 private:
-	int hp, money = 0, dayl = 0, a=0;
+	int hp, money = 0, dayl = 0, a = 0;
 	void sleep() {
 		dayl++;
 		hp = hp + (rand() % 30 + 20);
@@ -75,8 +75,8 @@ private:
 		cash = 0;
 	}
 	void pay() {
-		if (money > 3000) {
-			money = money - 3000;
+		if (money > 5000) {
+			money = money - 5000;
 		}
 		else {
 			cout << "У тебя теперь нет жилья\n\n";
@@ -97,7 +97,7 @@ private:
 	}
 	void hpcolor() {
 		HANDLE hpColor = GetStdHandle(STD_OUTPUT_HANDLE);
-		if (hp <= 50) {
+		if (hp <= 50 and hp >= 21) {
 			SetConsoleTextAttribute(hpColor, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 			cout << ". hp = " << hp << endl;
 		}
@@ -112,27 +112,43 @@ private:
 		SetConsoleTextAttribute(hpColor, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	}
 	void bar() {
-		if (rand() % 2== 0) {
+		if (rand() % 3 == 0) {
 			cout << "Вы потеряли свои деньги\n\n";
 			cash = cash - cash;
-			dayl++;
 			clear();
+			dayl++;
 			day++;
 		}
 		else {
 			cout << "Вы нашли на улице 200 рублей\n\n";
 			cash = cash + 200;
-			dayl++;
 			clear();
+			dayl++;
 			day++;
 		}
+	}
+	void matrix() {
+		int a;
+		string array[42] = { "1", "0" };
+		for (int j = 0; j < 60; j++) {
+			Sleep(25);
+			for (int i = 0; i < 40; i++) {
+				a = rand() % 2;
+				cout << "  " << array[a];
+			}
+			cout << endl;
+		}
+		cout << "\n\nБанк в котором хранились твои деньги обанкротился\n\n";
+		cout << "Вы потеряли = " << money << endl;
+		Sleep(1000);
+		money = 0;
 	}
 public:
 	int cash = 0;
 	string answer;
 	Lesorub() {
 		setlocale(LC_CTYPE, "rus");
-		cout << "ИНФОРМАЦИЯ:\n 1. 7 пропусков и ты уволены\n 2. Каждый понедельник у тебя со счёта списывают 3000 руб. квартплаты\n(первые 2 недели тебе её прощают)\n 3. Банк работает только в воскресенье \n 4. Команды:\n	sleep-спать,\n	work-работать,\n	money-положить деньги на счёт,\n	find-найти работу,\n	miting-сходить на митинг)\n И да кстати ты должен платить НАЛОГИ!!!!\n" << endl;
+		cout << "ИНФОРМАЦИЯ:\n 1. 7 пропусков и ты уволены\n 2. Каждый понедельник у тебя со счёта списывают 5000 руб. квартплаты\n(первые 2 недели тебе её прощают)\n 3. Банк работает только в воскресенье \n 4. Команды:\n	sleep-спать,\n	work-работать,\n	money-положить деньги на счёт,\n	find-найти работу,\n	miting-сходить на митинг)\n И да кстати ты должен платить НАЛОГИ!!!!\n" << endl;
 		hp = 100;
 	}
 	~Lesorub() {
@@ -183,7 +199,7 @@ public:
 	}
 	void do_damage(int damage) {
 		hp = hp - damage;
-		if (hp <= 0) {
+		if (cash <= 0 && money <= 0 && day > 7) {
 			cout << "Пуууууутен!!!" << endl;
 			system("pause");
 			exit(0);
@@ -200,15 +216,15 @@ public:
 		Sleep(2000);
 		system("cls");
 	}
-	void secret(){
+	void secret() {
 		clear();
 		cout << "                             *******\n\n"
-       "***     ***     ***   ***   ***    **\n"
-       " ***   ***       *** ***    ***    **\n"
-       "    *****         ****      ***    **\n"
-       "   *****          ***       ***  ****\n"
-       "  ***   ***      ***        *****  **\n"
-       " ***     ***    ***         ***    **\n\n";
+			"***     ***     ***   ***   ***    **\n"
+			" ***   ***       *** ***    ***    **\n"
+			"    *****         ****      ***    **\n"
+			"   *****          ***       ***  ****\n"
+			"  ***   ***      ***        *****  **\n"
+			" ***     ***    ***         ***    **\n\n";
 	}
 	void live_one_day() {
 		if (is_alive()) {
@@ -225,6 +241,9 @@ public:
 			cout << "Чем сегодня займёмся?\n";
 			cin >> answer;
 			cout << "\n";
+			if (money > 5000 and rand() % 2) {
+				matrix();
+			}
 			if (answer == "sleep") {
 				sleep();
 			}
@@ -257,7 +276,7 @@ public:
 			if (day % 7 == 1 and day > 14) {
 				pay();
 			}
-			if (answer != "money" and answer != "work" and answer != "sleep" and answer != "find" and answer != "secret" and answer != "miting"){
+			if (answer != "money" and answer != "work" and answer != "sleep" and answer != "find" and answer != "secret" and answer != "miting" and answer != "mat") {
 				cout << "error answer(Не понял щас)\n\n";
 				day = day - 1;
 			}
