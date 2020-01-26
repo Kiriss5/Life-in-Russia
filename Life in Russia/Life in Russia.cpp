@@ -241,7 +241,7 @@ public:
 			cout << "Чем сегодня займёмся?\n";
 			cin >> answer;
 			cout << "\n";
-			if (money > 5000 and rand() % 2) {
+			if (money > 5000 and rand() % 5) {
 				matrix();
 			}
 			if (answer == "sleep") {
