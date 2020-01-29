@@ -39,7 +39,7 @@ public:
 		}
 	}
 
-};
+}; 
 
 class Lesorub {
 private:
@@ -128,19 +128,17 @@ private:
 		}
 	}
 	void matrix() {
-		int a;
-		string array[42] = { "1", "0" };
 		for (int j = 0; j < 60; j++) {
 			Sleep(25);
 			for (int i = 0; i < 40; i++) {
 				a = rand() % 2;
-				cout << "  " << array[a];
+				cout << "  " << a;
 			}
 			cout << endl;
 		}
 		cout << "\n\nБанк в котором хранились твои деньги обанкротился\n\n";
 		cout << "Вы потеряли = " << money << endl;
-		Sleep(1000);
+		Sleep(2000);
 		money = 0;
 	}
 public:
@@ -309,7 +307,7 @@ int main()
 	srand(time(NULL));
 	system("color 0A");
 	setlocale(LC_CTYPE, "rus");
-	while (day < 365) {
+	while (day < 365 and vasya.is_alive()) {
 		vasya.live_one_day();
 		//iris.live_one_minute();
 		day++;
