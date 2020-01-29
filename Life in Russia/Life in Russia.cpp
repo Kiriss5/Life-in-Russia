@@ -78,13 +78,13 @@ private:
 		if (money > 5000) {
 			money = money - 5000;
 		}
-		else {
+		else if (money == 0 and cash == 0) {
 			cout << "У тебя теперь нет жилья\n\n";
 			hp = 0;
 		}
 	}
 	void miting() {
-		if (rand() % 50 == 0) {
+		if (rand() % 60 == 1) {
 			cout << "Даааа!!!\n Нэвальный смог придти к власти и теперь не о чём заботиться\n";
 			system("pause");
 			exit(0);
@@ -138,7 +138,7 @@ private:
 		}
 		cout << "\n\nБанк в котором хранились твои деньги обанкротился\n\n";
 		cout << "Вы потеряли = " << money << endl;
-		Sleep(2000);
+		Sleep(3000);
 		money = 0;
 	}
 public:
@@ -239,8 +239,9 @@ public:
 			cout << "Чем сегодня займёмся?\n";
 			cin >> answer;
 			cout << "\n";
-			if (money > 5000 and rand() % 5) {
+			if (money > 5000 and rand() % 20 == 1) {
 				matrix();
+				day--;
 			}
 			if (answer == "sleep") {
 				sleep();

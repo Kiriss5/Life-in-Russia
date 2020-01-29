@@ -1,3 +1,3 @@
 ﻿  Life in Russia.cpp
-C:\Users\novoz\source\repos\Life in Russia\Life in Russia\Life in Russia.cpp(290,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  Life in Russia.vcxproj -> C:\Users\novoz\source\repos\MyGame\Debug\Life in Russia.exe
+C:\Users\novoz\source\repos\Life in Russia\Life in Russia\Life in Russia.cpp(308,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Life in Russia.vcxproj -> C:\Users\novoz\source\repos\Life in Russia\Debug\Life in Russia.exe
